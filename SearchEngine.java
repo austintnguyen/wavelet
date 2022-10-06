@@ -13,22 +13,24 @@ class Handler implements URLHandler {
 
         if (url.getPath().equals("/")) {
             return String.format("No Search Result");
-            else if (url.getPath().contains("/search")){
+            }else if (url.getPath().contains("/search")){
                 String [] searchResult = url.getQuery().split("=");
-                if (searchReuslt[0].equals("s")) {
+                if (searchResult[0].equals("s")) {
                     String newString = "";
                     for(int i = 0; i < list.size(); i ++){
 
-                        if(list.get(i).contains(parameters[1]){
+                        if(list.get(i).contains(searchResult[1])){
                             newString+=(list.get(i)+ " ");
                         }
                     }
                     return newString;
                     
 
-                    return String.format(searchResult[1] + " added to the list.");
+               
                 }
-            }
+                return String.format(list.get(0));
+            
+            
         } else {
             System.out.println("Path: " + url.getPath());
             
@@ -44,6 +46,7 @@ class Handler implements URLHandler {
         }
     }
 }
+
 
 class SearchEngine {
     public static void main(String[] args) throws IOException {
