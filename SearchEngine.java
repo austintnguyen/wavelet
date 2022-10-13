@@ -12,7 +12,7 @@ class Handler implements URLHandler {
     public String handleRequest(URI url) {
 
         if (url.getPath().equals("/")) {
-            return String.format("No Search Result");
+            return String.format("Welcome to the Search Engine!");
             }else if (url.getPath().contains("/search")){
                 String [] searchResult = url.getQuery().split("=");
                 if (searchResult[0].equals("s")) {
@@ -38,7 +38,7 @@ class Handler implements URLHandler {
                 String[] parameters = url.getQuery().split("=");
                 if (parameters[0].equals("s")) {
                     list.add(parameters[1]);
-                    return String.format(parameters[1] + " added to the list.");
+                    return String.format(parameters[1] + " added to the Search. The Search now has %d results!", list.size());
                 }
             }
         
